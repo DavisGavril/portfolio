@@ -9,98 +9,85 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #ff512f, #dd2476);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: bgMove 8s infinite alternate;
+    background: radial-gradient(circle at top, #3b0000, #120000);
+    color: #fff;
+    overflow-x: hidden;
 }
 
-@keyframes bgMove {
-    0% { background-position: left; }
-    100% { background-position: right; }
+/* Page transition */
+.page {
+    animation: pageFade 0.8s ease;
 }
-
-.card {
-    background: rgba(255,255,255,0.12);
-    padding: 40px;
-    width: 90%;
-    max-width: 750px;
-    border-radius: 20px;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 0 40px rgba(255,255,255,0.2);
-    animation: fadeUp 1.2s ease;
-}
-
-@keyframes fadeUp {
+@keyframes pageFade {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Card */
+.card {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(120, 0, 0, 0.35);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
+}
+
+/* Profile */
 .profile {
     text-align: center;
 }
-
 .profile img {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    border: 4px solid white;
+    border: 4px solid #ff4d4d;
     animation: glow 2s infinite alternate;
 }
-
 @keyframes glow {
-    from { box-shadow: 0 0 10px white; }
-    to { box-shadow: 0 0 25px white; }
+    from { box-shadow: 0 0 10px red; }
+    to { box-shadow: 0 0 30px red; }
 }
 
-h1 {
-    margin-top: 10px;
-}
+h1 { margin-top: 10px; }
+h2 { margin-top: 25px; border-bottom: 2px solid #ff4d4d; }
 
 .buttons a {
     display: inline-block;
     margin: 10px;
-    padding: 10px 22px;
+    padding: 10px 24px;
+    background: #ff4d4d;
+    color: #120000;
     border-radius: 25px;
-    background: white;
-    color: #dd2476;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
 }
-
 .buttons a:hover {
     transform: scale(1.1);
 }
 
-section {
-    margin-top: 25px;
-}
-
-section h2 {
-    border-bottom: 2px solid rgba(255,255,255,0.4);
-    margin-bottom: 10px;
-}
-
+/* Icons */
 .icons {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
 }
-
 .icons a {
-    color: white;
     font-size: 26px;
     margin: 0 15px;
+    color: white;
     transition: 0.3s;
 }
-
 .icons a:hover {
-    transform: translateY(-5px) scale(1.2);
-    color: #ffe1e1;
+    color: #ff4d4d;
+    transform: translateY(-6px);
 }
 
-ul {
-    margin-left: 20px;
+/* Particle canvas */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
