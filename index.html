@@ -1,72 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Davis Gavril | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 80px 20px;
-    }
-    img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 4px solid #b98bfd;
-      object-fit: cover;
-    }
-    h1 span { color: #b98bfd; }
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #b98bfd;
-      color: black;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Davis Gavril | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff512f, #dd2476);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 40px;
+            border-radius: 18px;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 22px;
+            background: white;
+            color: #dd2476;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffdde1;
+        }
+
+        section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        section h2 {
+            border-bottom: 2px solid rgba(255,255,255,0.4);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        section p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin-left: 18px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
-<body style="background:red;color;white;">
 
-<header>
-  <img src="profile.jpg" alt="Profile Photo">
-  <h1>Davis <span>Gavril T</span></h1>
-  <p>Information Technology Student</p>
-  <a class="button" href="resume.pdf" download>Download Resume</a>
-</header>
+<body>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    B.Tech IT student passionate about software development,
-    mobile apps, and real-world problem solving.
-  </p>
-</section>
+<div class="card">
+    <!-- PROFILE -->
+    <img src="photo.jpg" alt="Profile Photo" class="profile-pic">
+    <h1>Davis Gavril T</h1>
+    <h3>Information Technology Student</h3>
 
-<section>
-  <h2>Skills</h2>
-  <p>Python • Java • Flutter • Web Development • Databases</p>
-</section>
+    <!-- BUTTONS -->
+    <a href="resume.pdf" class="btn" download>Download Resume</a>
+    <a href="https://github.com/DavisGavril" class="btn" target="_blank">GitHub</a>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: davisgavril292006@gmail.com</p>
-  <p>GitHub: github.com/DavisGavril</p>
-</section>
+    <!-- ABOUT -->
+    <section>
+        <h2>About Me</h2>
+        <p>
+            I am a B.Tech Information Technology student passionate about software development,
+            problem-solving, and building real-world applications. I enjoy working with
+            Java, Python, Flutter, and web technologies.
+        </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Flutter</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Database Management</li>
+        </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+        <h2>Contact</h2>
+        <p>Email: davisgavril2200@gmail.com</p>
+        <p>GitHub: github.com/DavisGavril</p>
+    </section>
+
+    <footer>
+        © 2025 Davis Gavril. All rights reserved.
+    </footer>
+</div>
 
 </body>
 </html>
