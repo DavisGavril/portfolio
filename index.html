@@ -1,46 +1,265 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Davis Gavril | Anime Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<title>Davis Gavril | Anime Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+/* ===== GLOBAL ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #0b0003;
+    color: #fff;
+    overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+section {
+    min-height: 100vh;
+    padding: 80px 10%;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity:0; transform: translateY(20px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
+/* ===== NAV ===== */
+nav {
+    position: fixed;
+    top:0;
+    width:100%;
+    background: rgba(30,0,10,0.9);
+    padding:15px 10%;
+    display:flex;
+    justify-content:space-between;
+    z-index:1000;
+    box-shadow:0 0 20px crimson;
+}
+nav a {
+    margin-left:20px;
+    cursor:pointer;
+}
+nav a:hover { color: crimson; }
+
+/* ===== HERO ===== */
+.hero h1 {
+    font-size:3rem;
+    color: crimson;
+    text-shadow:0 0 15px crimson;
+}
+.hero p {
+    margin:20px 0;
+    max-width:600px;
+}
+.hero button {
+    padding:12px 25px;
+    background: crimson;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+.hero button:hover { background: darkred; }
+
+/* ===== SOCIAL ===== */
+.social i {
+    font-size:1.6rem;
+    margin-right:15px;
+    transition:.3s;
+}
+.social i:hover { color: crimson; transform:scale(1.2); }
+
+/* ===== PROJECTS ===== */
+.projects-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
+.card {
+    background: rgba(40,0,10,0.8);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 15px darkred;
+    transition:.3s;
+}
+.card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 0 25px crimson;
+}
+
+/* ===== CERTIFICATES ===== */
+.gallery {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:15px;
+}
+.gallery img {
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+.gallery img:hover {
+    transform:scale(1.05);
+    box-shadow:0 0 20px crimson;
+}
+
+/* ===== POPUP ===== */
+.popup {
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+.popup img {
+    max-width:90%;
+    max-height:90%;
+}
+
+/* ===== CURSOR TRAIL ===== */
+.trail {
+    position:fixed;
+    width:10px;
+    height:10px;
+    background: crimson;
+    border-radius:50%;
+    pointer-events:none;
+    animation: fade 0.8s linear forwards;
+}
+@keyframes fade {
+    to { opacity:0; transform:scale(2); }
+}
+
+/* ===== PARTICLES ===== */
+canvas {
+    position:fixed;
+    top:0; left:0;
+    z-index:-1;
+}
+
+/* ===== HIDE SECTIONS ===== */
+.hidden { display:none; }
+</style>
 </head>
+
 <body>
+
 <canvas id="particles"></canvas>
 
-<div class="card page">
-    <div class="profile">
-        <img src="photo.jpg">
-        <h1>Davis Gavril T</h1>
-        <p>IT Student | Anime UI Lover</p>
+<nav>
+    <strong>DAVIS</strong>
+    <div>
+        <a onclick="show('home')">Home</a>
+        <a onclick="show('projects')">Projects</a>
+        <a onclick="show('certificates')">Certificates</a>
     </div>
+</nav>
 
-    <div class="buttons">
-        <a href="resume.pdf" download>Download Resume</a>
-        <a href="projects.html">Projects</a>
-        <a href="certificates.html">Certificates</a>
-    </div>
+<!-- HOME -->
+<section id="home" class="hero">
+    <h1>Davis Gavril</h1>
+    <p>Anime-inspired developer portfolio with One Piece aesthetics, dark red theme, and motion effects.</p>
 
-    <h2>About Me</h2>
-    <p>
-        Passionate about software development, anime-inspired UI,
-        and building creative web experiences.
-    </p>
-
-    <h2>Skills</h2>
-    <ul>
-        <li>Java, Python</li>
-        <li>Flutter</li>
-        <li>HTML, CSS, JavaScript</li>
-    </ul>
-
-    <div class="icons">
+    <div class="social">
         <a href="https://github.com/DavisGavril" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:davisgavril2200@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:yourmail@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="hidden">
+    <h1 style="color:crimson;">Projects</h1><br>
+    <div class="projects-grid">
+        <div class="card">Portfolio Website</div>
+        <div class="card">Weather App (API)</div>
+        <div class="card">Flutter To-Do App</div>
+        <div class="card">Event Management Website</div>
+    </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates" class="hidden">
+    <h1 style="color:crimson;">Certificates</h1><br>
+    <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="popup" onclick="this.style.display='none'">
+    <img id="popupImg">
 </div>
 
-<script src="script.js"></script>
+<script>
+/* ===== PAGE SWITCH ===== */
+function show(id){
+    document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+    document.getElementById(id).classList.remove("hidden");
+}
+
+/* ===== CERT AUTO LOAD (20+ images) ===== */
+const gallery = document.getElementById("gallery");
+for(let i=1;i<=30;i++){
+    let img=document.createElement("img");
+    img.src=certificates/cert${i}.jpg;
+    img.onclick=()=>{ 
+        popup.style.display="flex"; 
+        popupImg.src=img.src; 
+    };
+    gallery.appendChild(img);
+}
+
+/* ===== CURSOR TRAIL ===== */
+document.addEventListener("mousemove", e=>{
+    let d=document.createElement("div");
+    d.className="trail";
+    d.style.left=e.clientX+"px";
+    d.style.top=e.clientY+"px";
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),800);
+});
+
+/* ===== PARTICLES ===== */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth; canvas.height=innerHeight;
+let particles=[];
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*2,
+        dx:(Math.random()-0.5),
+        dy:(Math.random()-0.5)
+    });
+}
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="crimson";
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+        p.x+=p.dx; p.y+=p.dy;
+        if(p.x<0||p.x>canvas.width) p.dx*=-1;
+        if(p.y<0||p.y>canvas.height) p.dy*=-1;
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
 </body>
 </html>
