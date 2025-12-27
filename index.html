@@ -1,155 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Davis Gavril | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ff512f, #dd2476);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.12);
-            padding: 40px;
-            border-radius: 18px;
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .profile-pic {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 600;
-        }
-
-        h3 {
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 22px;
-            background: white;
-            color: #dd2476;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #ffdde1;
-        }
-
-        section {
-            margin-top: 30px;
-            text-align: left;
-        }
-
-        section h2 {
-            border-bottom: 2px solid rgba(255,255,255,0.4);
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        section p {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        ul {
-            margin-left: 18px;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 13px;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 600px) {
-            .card {
-                padding: 25px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
 <div class="card">
-    <!-- PROFILE -->
-    <img src="photo.jpg" alt="Profile Photo" class="profile-pic">
-    <h1>Davis Gavril T</h1>
-    <h3>Information Technology Student</h3>
+    <div class="profile">
+        <img src="photo.jpg">
+        <h1>Davis Gavril T</h1>
+        <p>Information Technology Student</p>
+    </div>
 
-    <!-- BUTTONS -->
-    <a href="resume.pdf" class="btn" download>Download Resume</a>
-    <a href="https://github.com/DavisGavril" class="btn" target="_blank">GitHub</a>
+    <div class="buttons">
+        <a href="resume.pdf" download>Download Resume</a>
+        <a href="projects.html">Projects</a>
+        <a href="certificates.html">Certificates</a>
+    </div>
 
-    <!-- ABOUT -->
     <section>
         <h2>About Me</h2>
         <p>
-            I am a B.Tech Information Technology student passionate about software development,
-            problem-solving, and building real-world applications. I enjoy working with
-            Java, Python, Flutter, and web technologies.
+            B.Tech IT student passionate about software development, anime-style UI,
+            problem solving and real-world applications.
         </p>
     </section>
 
-    <!-- SKILLS -->
     <section>
         <h2>Skills</h2>
         <ul>
-            <li>Java</li>
-            <li>Python</li>
+            <li>Java, Python</li>
             <li>Flutter</li>
             <li>HTML, CSS, JavaScript</li>
-            <li>Database Management</li>
+            <li>Databases</li>
         </ul>
     </section>
 
-    <!-- CONTACT -->
-    <section>
-        <h2>Contact</h2>
-        <p>Email: davisgavril2200@gmail.com</p>
-        <p>GitHub: github.com/DavisGavril</p>
-    </section>
-
-    <footer>
-        © 2025 Davis Gavril. All rights reserved.
-    </footer>
+    <div class="icons">
+        <a href="https://github.com/DavisGavril" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:davisgavril2200@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
 </div>
 
 </body>
