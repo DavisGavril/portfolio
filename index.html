@@ -8,65 +8,7 @@
 <!-- Font & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-/* ===== GLOBAL ===== */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Orbitron', sans-serif;}
-body { background: #0b0003; color: #fff; overflow-x:hidden; scroll-behavior:smooth; }
-
-/* NAV */
-nav {
-    position:fixed; top:0; width:100%; background: rgba(30,0,10,0.95);
-    padding:15px 10%; display:flex; justify-content:space-between; z-index:1000;
-    box-shadow:0 0 20px crimson;
-}
-nav a { margin-left:20px; cursor:pointer; transition:.3s; }
-nav a:hover { color: crimson; }
-
-/* SECTION */
-section { min-height:100vh; padding:100px 10%; animation: fadeIn 0.8s ease; }
-.hidden { display:none; }
-@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
-
-/* HERO */
-.hero { text-align:center; }
-.hero img { width:180px; border-radius:50%; border:3px solid crimson; margin-bottom:20px; }
-.hero h1 { font-size:3rem; color: crimson; text-shadow:0 0 15px crimson; }
-.hero p { max-width:700px; margin:20px auto; line-height:1.6; }
-
-/* SOCIAL */
-.social i { font-size:1.6rem; margin:0 10px; transition:.3s; }
-.social i:hover { color: crimson; transform:scale(1.2); }
-
-/* BUTTON */
-.btn { padding:12px 25px; background: crimson; border:none; color:white; font-weight:bold; cursor:pointer; border-radius:5px; transition:.3s; }
-.btn:hover { background: darkred; }
-
-/* SKILLS */
-.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px; }
-.skill { background: rgba(40,0,10,0.8); padding:10px 15px; border-radius:10px; box-shadow:0 0 15px crimson; }
-
-/* PROJECTS */
-.projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-.card { background: rgba(40,0,10,0.8); padding:20px; border-radius:10px; box-shadow:0 0 15px darkred; transition:.3s; }
-.card:hover { transform:translateY(-10px); box-shadow:0 0 25px crimson; }
-.card h3 { color: crimson; margin-bottom:10px; }
-.card p { line-height:1.4; }
-
-/* CERTIFICATES */
-.gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:15px; margin-top:20px; }
-.gallery img { width:100%; border-radius:10px; cursor:pointer; border:2px solid crimson; transition:.3s; }
-.gallery img:hover { transform:scale(1.05); box-shadow:0 0 20px crimson; }
-
-/* POPUP */
-.popup { position:fixed; inset:0; background: rgba(0,0,0,0.85); display:none; justify-content:center; align-items:center; z-index:2000; }
-.popup img { max-width:90%; max-height:90%; border-radius:10px; border:2px solid crimson; }
-.popup span { position:absolute; top:20px; right:30px; font-size:40px; cursor:pointer; color:white; }
-
-/* PARTICLES */
-canvas { position:fixed; top:0; left:0; z-index:-1; }
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -101,9 +43,7 @@ canvas { position:fixed; top:0; left:0; z-index:-1; }
 <!-- ABOUT ME -->
 <section id="about" class="hidden">
     <h1 style="color:crimson;">About Me</h1>
-    <p style="max-width:700px; margin:20px auto; line-height:1.6;">
-        I am a passionate B.Tech IT student and aspiring developer with skills in Java, Python, Flutter, and web development. I enjoy creating projects that combine functionality with aesthetic appeal. My goal is to continuously improve my skills and contribute to innovative projects.
-    </p>
+    <p>I am a passionate B.Tech IT student and aspiring developer with skills in Java, Python, Flutter, and web development. I enjoy creating projects that combine functionality with aesthetic appeal. My goal is to continuously improve my skills and contribute to innovative projects.</p>
 </section>
 
 <!-- SKILLS -->
@@ -155,55 +95,6 @@ canvas { position:fixed; top:0; left:0; z-index:-1; }
     <img id="popupImg">
 </div>
 
-<script>
-/* PAGE SWITCH */
-function show(id){
-    document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
-    document.getElementById(id).classList.remove("hidden");
-}
-
-/* CERTIFICATE GALLERY */
-const gallery = document.getElementById("gallery");
-const TOTAL_CERTS = 30; // change this based on your images
-
-for(let i=1;i<=TOTAL_CERTS;i++){
-    const img = document.createElement("img");
-    img.src = certificates/cert${i}.jpg;
-    img.alt = Certificate ${i};
-    img.onerror = ()=>img.remove();
-    img.onclick = ()=>{
-        document.getElementById("popupImg").src = img.src;
-        document.getElementById("popup").style.display = "flex";
-    };
-    gallery.appendChild(img);
-}
-
-/* POPUP CLOSE */
-function closePopup(){ document.getElementById("popup").style.display="none"; }
-
-/* PARTICLES */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = innerWidth; canvas.height = innerHeight;
-let particles=[];
-for(let i=0;i<80;i++){
-    particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2, dx:(Math.random()-0.5), dy:(Math.random()-0.5)});
-}
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="crimson";
-    particles.forEach(p=>{
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fill();
-        p.x+=p.dx; p.y+=p.dy;
-        if(p.x<0||p.x>canvas.width) p.dx*=-1;
-        if(p.y<0||p.y>canvas.height) p.dy*=-1;
-    });
-    requestAnimationFrame(animate);
-}
-animate();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
