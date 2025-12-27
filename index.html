@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Davis Gavril | Anime Portfolio</title>
+<title>Davis Gavril | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font & Icons -->
@@ -12,11 +12,11 @@
 <style>
 /* ===== GLOBAL ===== */
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Orbitron', sans-serif;}
-body { background: #0b0003; color: #fff; overflow-x:hidden; }
+body { background: #0b0003; color: #fff; overflow-x:hidden; scroll-behavior:smooth; }
 
 /* NAV */
 nav {
-    position:fixed; top:0; width:100%; background: rgba(30,0,10,0.9);
+    position:fixed; top:0; width:100%; background: rgba(30,0,10,0.95);
     padding:15px 10%; display:flex; justify-content:space-between; z-index:1000;
     box-shadow:0 0 20px crimson;
 }
@@ -26,22 +26,35 @@ nav a:hover { color: crimson; }
 /* SECTION */
 section { min-height:100vh; padding:100px 10%; animation: fadeIn 0.8s ease; }
 .hidden { display:none; }
-
 @keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
 
 /* HERO */
+.hero { text-align:center; }
+.hero img { width:180px; border-radius:50%; border:3px solid crimson; margin-bottom:20px; }
 .hero h1 { font-size:3rem; color: crimson; text-shadow:0 0 15px crimson; }
-.hero p { margin:20px 0; max-width:600px; }
-.social i { font-size:1.6rem; margin-right:15px; transition:.3s; }
+.hero p { max-width:700px; margin:20px auto; line-height:1.6; }
+
+/* SOCIAL */
+.social i { font-size:1.6rem; margin:0 10px; transition:.3s; }
 .social i:hover { color: crimson; transform:scale(1.2); }
+
+/* BUTTON */
+.btn { padding:12px 25px; background: crimson; border:none; color:white; font-weight:bold; cursor:pointer; border-radius:5px; transition:.3s; }
+.btn:hover { background: darkred; }
+
+/* SKILLS */
+.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px; }
+.skill { background: rgba(40,0,10,0.8); padding:10px 15px; border-radius:10px; box-shadow:0 0 15px crimson; }
 
 /* PROJECTS */
 .projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
 .card { background: rgba(40,0,10,0.8); padding:20px; border-radius:10px; box-shadow:0 0 15px darkred; transition:.3s; }
 .card:hover { transform:translateY(-10px); box-shadow:0 0 25px crimson; }
+.card h3 { color: crimson; margin-bottom:10px; }
+.card p { line-height:1.4; }
 
 /* CERTIFICATES */
-.gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:15px; }
+.gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:15px; margin-top:20px; }
 .gallery img { width:100%; border-radius:10px; cursor:pointer; border:2px solid crimson; transition:.3s; }
 .gallery img:hover { transform:scale(1.05); box-shadow:0 0 20px crimson; }
 
@@ -52,6 +65,7 @@ section { min-height:100vh; padding:100px 10%; animation: fadeIn 0.8s ease; }
 
 /* PARTICLES */
 canvas { position:fixed; top:0; left:0; z-index:-1; }
+
 </style>
 </head>
 <body>
@@ -62,6 +76,8 @@ canvas { position:fixed; top:0; left:0; z-index:-1; }
     <strong>DAVIS</strong>
     <div>
         <a onclick="show('home')">Home</a>
+        <a onclick="show('about')">About</a>
+        <a onclick="show('skills')">Skills</a>
         <a onclick="show('projects')">Projects</a>
         <a onclick="show('certificates')">Certificates</a>
     </div>
@@ -69,8 +85,12 @@ canvas { position:fixed; top:0; left:0; z-index:-1; }
 
 <!-- HOME -->
 <section id="home" class="hero">
+    <img src="profile.jpg" alt="Profile Photo">
     <h1>Davis Gavril</h1>
-    <p>Anime-inspired developer portfolio with dark red theme, background particles, and motion effects.</p>
+    <p>Anime-inspired developer portfolio with dark red theme, background particles, and smooth animations. Passionate about web and mobile development, with experience in Flutter, Java, Python, and modern web technologies.</p>
+    <div>
+        <a class="btn" href="resume.pdf" download>Download Resume</a>
+    </div>
     <div class="social">
         <a href="https://github.com/DavisGavril" target="_blank"><i class="fab fa-github"></i></a>
         <a href="mailto:yourmail@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -78,20 +98,54 @@ canvas { position:fixed; top:0; left:0; z-index:-1; }
     </div>
 </section>
 
+<!-- ABOUT ME -->
+<section id="about" class="hidden">
+    <h1 style="color:crimson;">About Me</h1>
+    <p style="max-width:700px; margin:20px auto; line-height:1.6;">
+        I am a passionate B.Tech IT student and aspiring developer with skills in Java, Python, Flutter, and web development. I enjoy creating projects that combine functionality with aesthetic appeal. My goal is to continuously improve my skills and contribute to innovative projects.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="hidden">
+    <h1 style="color:crimson;">Skills</h1>
+    <div class="skills">
+        <div class="skill">Java</div>
+        <div class="skill">Python</div>
+        <div class="skill">Flutter</div>
+        <div class="skill">HTML & CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Git & GitHub</div>
+    </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects" class="hidden">
-    <h1 style="color:crimson;">Projects</h1><br>
+    <h1 style="color:crimson;">Projects</h1>
     <div class="projects-grid">
-        <div class="card">Portfolio Website</div>
-        <div class="card">Weather App (API)</div>
-        <div class="card">Flutter To-Do App</div>
-        <div class="card">Event Management Website</div>
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>A full-featured anime-themed portfolio website showcasing my projects, certificates, skills, and resume download functionality.</p>
+        </div>
+        <div class="card">
+            <h3>Weather App (API)</h3>
+            <p>A responsive weather application using fetch API in JavaScript, allowing users to check weather updates of any city in real-time.</p>
+        </div>
+        <div class="card">
+            <h3>Flutter To-Do App</h3>
+            <p>A Flutter-based To-Do app with multiple projects, task tracking, time entries, and a smooth user interface with swipe-to-delete functionality.</p>
+        </div>
+        <div class="card">
+            <h3>Event Management Website</h3>
+            <p>A web platform for managing events with registration, schedule, and notifications. Built with modern web technologies for responsiveness and interactivity.</p>
+        </div>
     </div>
 </section>
 
 <!-- CERTIFICATES -->
 <section id="certificates" class="hidden">
-    <h1 style="color:crimson;">Certificates</h1><br>
+    <h1 style="color:crimson;">Certificates</h1>
     <div class="gallery" id="gallery"></div>
 </section>
 
@@ -102,24 +156,24 @@ canvas { position:fixed; top:0; left:0; z-index:-1; }
 </div>
 
 <script>
-/* ===== PAGE SWITCH ===== */
+/* PAGE SWITCH */
 function show(id){
     document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
     document.getElementById(id).classList.remove("hidden");
 }
 
-/* ===== CERTIFICATE GALLERY ===== */
+/* CERTIFICATE GALLERY */
 const gallery = document.getElementById("gallery");
-const TOTAL_CERTS = 30; // Change this to number of images you have
+const TOTAL_CERTS = 30; // change this based on your images
 
 for(let i=1;i<=TOTAL_CERTS;i++){
-    const img=document.createElement("img");
-    img.src=certificates/cert${i}.jpg;
-    img.alt=Certificate ${i};
-    img.onerror=()=>img.remove(); // remove missing images
-    img.onclick=()=>{ 
-        document.getElementById("popupImg").src=img.src;
-        document.getElementById("popup").style.display="flex";
+    const img = document.createElement("img");
+    img.src = certificates/cert${i}.jpg;
+    img.alt = Certificate ${i};
+    img.onerror = ()=>img.remove();
+    img.onclick = ()=>{
+        document.getElementById("popupImg").src = img.src;
+        document.getElementById("popup").style.display = "flex";
     };
     gallery.appendChild(img);
 }
@@ -127,19 +181,13 @@ for(let i=1;i<=TOTAL_CERTS;i++){
 /* POPUP CLOSE */
 function closePopup(){ document.getElementById("popup").style.display="none"; }
 
-/* ===== PARTICLES ===== */
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-canvas.width=innerWidth; canvas.height=innerHeight;
+/* PARTICLES */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth; canvas.height = innerHeight;
 let particles=[];
 for(let i=0;i<80;i++){
-    particles.push({
-        x:Math.random()*canvas.width,
-        y:Math.random()*canvas.height,
-        r:Math.random()*2,
-        dx:(Math.random()-0.5),
-        dy:(Math.random()-0.5)
-    });
+    particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2, dx:(Math.random()-0.5), dy:(Math.random()-0.5)});
 }
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
