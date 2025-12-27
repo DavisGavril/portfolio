@@ -1,168 +1,72 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Davis Gavril | IT Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Davis Gavril | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #fff;
-      line-height: 1.6;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+      color: white;
+      text-align: center;
     }
     header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent);
+      padding: 80px 20px;
     }
-    header h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      letter-spacing: 2px;
+    img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #b98bfd;
+      object-fit: cover;
     }
-    header h1 span { color: #b98bfd; }
-    header p {
-      font-size: 1.3rem;
-      opacity: 0.85;
-      margin-top: 10px;
+    h1 span { color: #b98bfd; }
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #b98bfd;
+      color: black;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
     }
-    .section {
-      padding: 80px 10%;
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
     }
-    .section h2 {
-      font-size: 2.4rem;
-      margin-bottom: 30px;
-      border-left: 5px solid #b98bfd;
-      padding-left: 15px;
-    }
-    .about p { max-width: 900px; opacity: 0.9; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-    .card {
-      background: rgba(255,255,255,0.08);
-      padding: 25px;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-    .card h3 { margin-bottom: 10px; color: #d7baff; }
-    ul { list-style: none; }
-    ul li::before {
-      content: "▹";
-      color: #b98bfd;
-      margin-right: 8px;
-    }
-    .contact {
-      text-align: center;
-      background: rgba(0,0,0,0.3);
-    }
-    .contact p { margin: 10px 0; }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.4);
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-  @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-header, .section, footer{animation:fadeUp 1.2s ease forwards}
-.socials{margin-top:25px}
-.socials a{margin:0 10px;color:#fff;font-size:1.2rem;text-decoration:none;padding:10px 16px;border-radius:25px;background:rgba(255,255,255,0.1);transition:0.3s}
-.socials a:hover{background:#b98bfd;color:#000}
-.skills-bar{margin:10px 0}
-.bar{height:8px;background:#333;border-radius:10px;overflow:hidden}
-.bar span{display:block;height:100%;background:linear-gradient(90deg,#b98bfd,#6a5acd)}</head>
+  </style>
+</head>
 <body>
-<button id="toggle" style="position:fixed;top:20px;right:20px;z-index:999;padding:10px 15px;border:none;border-radius:20px;background:#b98bfd;color:#000;font-weight:600;cursor:pointer">☀ / 🌙</button>
-<script>
-let dark=true;document.getElementById('toggle').onclick=()=>{document.body.style.background=dark?'#f4f4f4':'linear-gradient(135deg,#0f0c29,#302b63,#24243e)';document.body.style.color=dark?'#000':'#fff';dark=!dark}
-</script><header>
-  <img src="profile.jpg" alt="Davis Gavril" style="width:180px;height:180px;border-radius:50%;border:4px solid #b98bfd;margin-bottom:20px;object-fit:cover;box-shadow:0 0 30px rgba(185,139,253,0.6);" />
+
+<header>
+  <img src="profile.jpg" alt="Profile Photo">
   <h1>Davis <span>Gavril T</span></h1>
-  <p>Information Technology Student | Software & App Developer</p>
-  <a href="resume.pdf" download style="margin-top:25px;display:inline-block;padding:12px 28px;border-radius:30px;background:linear-gradient(135deg,#b98bfd,#6a5acd);color:#fff;text-decoration:none;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.4);transition:transform 0.3s;">Download Resume</a>
-<div class="socials">
-<a href="#">GitHub</a>
-<a href="#">LinkedIn</a>
-<a href="#">Portfolio</a>
-</div>
-</header><section class="section about">
-  <h2>Profile</h2>
+  <p>Information Technology Student</p>
+  <a class="button" href="resume.pdf" download>Download Resume</a>
+</header>
+
+<section>
+  <h2>About Me</h2>
   <p>
-    Motivated and detail-oriented B.Tech Information Technology student at K.S. Rangasamy College of Technology with strong fundamentals in programming, computer networks, and software development. Passionate about emerging technologies and building impactful real-world applications.
+    B.Tech IT student passionate about software development,
+    mobile apps, and real-world problem solving.
   </p>
-</section><section class="section">
-  <h2>Technical Skills</h2>
-  <div class="card">
-    <p>Python</p><div class="bar"><span style="width:90%"></span></div>
-    <p>Java</p><div class="bar"><span style="width:85%"></span></div>
-    <p>Flutter</p><div class="bar"><span style="width:80%"></span></div>
-    <p>Web Development</p><div class="bar"><span style="width:88%"></span></div>
-    <p>Databases</p><div class="bar"><span style="width:75%"></span></div>
-  </div>
-</section><section class="section">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>DR. VENOM – SOS Website</h3>
-      <p>Emergency assistance platform for venomous bites with real-time SOS, geolocation, hospital mapping, and admin management.</p>
-      <p><b>Tech:</b> HTML, CSS, Bootstrap, AngularJS, MySQL</p>
-    </div>
-    <div class="card">
-      <h3>To-Do List Mobile Application</h3>
-      <p>Flutter-based task and project management app with intuitive UI, time tracking, and swipe-to-delete features.</p>
-      <p><b>Tech:</b> Flutter, Dart, Firebase, SQLite</p>
-    </div>
-  </div>
-</section><section class="section">
-  <h2>Education</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>B.Tech Information Technology (2023–2027)</h3>
-      <p>K.S. Rangasamy College of Technology, Anna University</p>
-      <p>CGPA: 7.77 / 10</p>
-    </div>
-    <div class="card">
-      <h3>Higher Secondary (2022–2023)</h3>
-      <p>KSR Matriculation Higher Secondary School</p>
-      <p>Percentage: 74.4%</p>
-    </div>
-  </div>
-</section><section class="section">
-  <h2>Certifications</h2>
-  <div class="card">
-    <ul>
-      <li>Data Structures & Algorithms – Infosys Springboard</li>
-      <li>Generative AI (Professional) – Oracle University</li>
-      <li>Java Concepts – Infosys Springboard</li>
-      <li>MongoDB Fundamentals – MongoDB</li>
-      <li>UI Automation – UiPath</li>
-      <li>OS Basics – Cisco Networking Academy</li>
-      <li>Data Science & Analytics – HP Foundation</li>
-    </ul>
-  </div>
-</section><section class="section contact">
-  <h2>Contact Me</h2>
-  <form style="max-width:500px;margin:auto">
-    <input type="text" placeholder="Your Name" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:none">
-    <input type="email" placeholder="Your Email" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:none">
-    <textarea placeholder="Your Message" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:none"></textarea>
-    <button style="padding:12px 30px;border:none;border-radius:25px;background:#b98bfd;font-weight:600">Send</button>
-  </form>
-  <p style="margin-top:20px">📍 Erode, Tamil Nadu | 📞 +91 9363015224 | ✉ davisgavril292006@gmail.com</p>
-</section><footer>
-  © 2025 Davis Gavril T | Dramatic Developer Portfolio
-</footer></body>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <p>Python • Java • Flutter • Web Development • Databases</p>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Email: davisgavril292006@gmail.com</p>
+  <p>GitHub: github.com/DavisGavril</p>
+</section>
+
+</body>
 </html>
