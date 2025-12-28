@@ -1,20 +1,89 @@
-/* --- Add/Replace these sections in style.css --- */
+/* --- Variables & Reset --- */
+:root {
+    --primary-color: #4a90e2;
+    --dark-bg: #2c3e50;
+    --light-bg: #f4f7f6;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-/* 1. Smooth Scrolling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
-/* 2. Animated Hero Background */
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents side scrolling issues */
+}
+
+/* --- Navigation (Fixed) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark-bg);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span { color: var(--primary-color); }
+
+/* Desktop Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Hero Section --- */
 .hero {
     background: linear-gradient(-45deg, #1e3c72, #2a5298, #2c3e50, #4ca1af);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: var(--white);
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 20px; /* Increased padding for better spacing */
     position: relative;
-    overflow: hidden;
 }
 
 @keyframes gradientBG {
@@ -23,7 +92,6 @@ html {
     100% { background-position: 0% 50%; }
 }
 
-/* 3. Floating Profile Image */
 .profile-img {
     width: 150px;
     height: 150px;
@@ -31,9 +99,9 @@ html {
     border: 4px solid var(--primary-color);
     object-fit: cover;
     margin-bottom: 20px;
-    /* The floating magic */
-    animation: float 6s ease-in-out infinite; 
+    animation: float 6s ease-in-out infinite;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background-color: #fff; /* Fallback if image breaks */
 }
 
 @keyframes float {
@@ -42,11 +110,68 @@ html {
     100% { transform: translateY(0px); }
 }
 
-/* 4. Scroll Reveal Classes (Used by JS) */
+.highlight { color: var(--primary-color); font-weight: bold; }
+.hero h1 { margin-bottom: 10px; font-size: 2rem; }
+.hero h3 { margin-bottom: 15px; font-size: 1.2rem; }
+.hero p { max-width: 600px; margin: 0 auto 30px auto; }
+
+/* Typing Cursor */
+.typing-text::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* --- Buttons --- */
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary { background-color: var(--primary-color); color: white; animation: pulse 2s infinite; }
+.secondary { background-color: transparent; border: 2px solid var(--white); color: white; }
+
+.btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+}
+
+/* --- Layout Sections --- */
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center; /* Centers content */
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--dark-bg);
+    display: inline-block;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* --- THE FIX: Reveal Animation (Forced Visible by Default) --- */
 .reveal {
     position: relative;
-    transform: translateY(50px);
-    opacity: 0;
+    transform: translateY(30px);
+    opacity: 1; /* Changed from 0 to 1 so it is ALWAYS visible */
     transition: all 1s ease;
 }
 
@@ -55,36 +180,63 @@ html {
     opacity: 1;
 }
 
-/* 5. Card Hover Effects (Pop) */
-.card, .skill-card, .cert-item {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+/* --- Skills & Projects Grids --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.card:hover, .skill-card:hover, .cert-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    cursor: pointer;
+.skill-card {
+    background: var(--white);
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    font-weight: bold;
+    color: var(--dark-bg);
+    transition: transform 0.3s;
 }
 
-/* 6. Button Pulse Animation */
-.btn.primary {
-    animation: pulse 2s infinite;
+.skill-card:hover { transform: translateY(-5px); background: var(--primary-color); color: white; }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--dark-bg);
+    color: #bbb;
+    margin-top: 50px;
 }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
-}
+/* --- Mobile Responsiveness (The Critical Part) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below navbar */
+        left: 0;
+        background-color: var(--dark-bg);
+        padding: 20px 0;
+        text-align: center;
+    }
 
-/* 7. Typing Cursor */
-.typing-text::after {
-    content: '|';
-    animation: blink 0.7s infinite;
-}
+    .nav-links.active {
+        display: flex; /* Shown when hamburger clicked */
+    }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: block; /* Visible on mobile */
+    }
+    
+    .hero h1 { font-size: 1.8rem; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .btn { width: 80%; margin-bottom: 10px; }
 }
 
