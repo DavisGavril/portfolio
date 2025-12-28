@@ -3,197 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davis Gavril T - Portfolio</title>
+    <title>Davis Gavril T - Home</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        /* --- CSS STYLES (Built-in) --- */
-        :root {
-            --primary-color: #4a90e2;
-            --dark-bg: #2c3e50;
-            --light-bg: #f4f7f6;
-            --white: #ffffff;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
-        body { 
-            background-color: var(--light-bg); 
-            color: #333; 
-            padding-bottom: 50px; 
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            background-color: var(--dark-bg);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .logo { font-size: 1.5rem; font-weight: bold; }
-        .logo span { color: var(--primary-color); }
-
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { color: white; text-decoration: none; font-size: 1rem; }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        
-        .profile-img {
-            width: 150px; 
-            height: 150px; 
-            border-radius: 50%; 
-            border: 4px solid var(--primary-color);
-            margin-bottom: 15px;
-            object-fit: cover;
-            background-color: white;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-top: 15px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* Content Containers - FORCED VISIBLE */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            opacity: 1 !important; /* Forces visibility */
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--dark-bg);
-            text-transform: uppercase;
-            border-bottom: 3px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        /* Skills Grid */
-        .grid-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .card {
-            background: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            min-width: 140px; 
-            text-align: center;
-            font-weight: bold;
-            color: var(--dark-bg);
-        }
-        
-        .card i { margin-right: 8px; color: var(--primary-color); }
-
-        /* Mobile Fixes */
-        @media (max-width: 768px) {
-            .nav-links { 
-                flex-direction: column; 
-                display: none; 
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: var(--dark-bg);
-                padding: 20px;
-                text-align: center;
-            }
-            .nav-links.active { display: flex; }
-            .hamburger { display: block; font-size: 1.5rem; cursor: pointer; }
-        }
-        @media (min-width: 769px) {
-            .hamburger { display: none; }
-        }
-    </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="logo">Davis<span>Gavril</span></div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="#" id="contact-btn">Contact</a></li>
         </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
     </nav>
 
     <header class="hero">
-        <img src="profile.jpg" alt="Profile Photo" class="profile-img">
-        <h1>Hi, I'm Davis Gavril T</h1>
-        <h3>B.Tech Information Technology Student</h3>
-        
-        <a href="resume.pdf" class="btn" download>Download CV <i class="fas fa-download"></i></a>
-        <a href="mailto:davisgavril292006@gmail.com" class="btn" style="background: transparent; border: 2px solid white; margin-left: 10px;">Hire Me</a>
+        <div class="hero-content">
+            <img src="profile.jpg" alt="Davis Gavril T" class="profile-img">
+            <h1>Hi, I'm <span class="highlight">Davis Gavril T</span></h1>
+            <h3>I am a <span class="typing-text"></span></h3>
+            <div class="hero-btns">
+                <a href="resume.pdf" class="btn primary" download>Download CV <i class="fas fa-download"></i></a>
+            </div>
+        </div>
     </header>
 
     <section class="container">
-        <center><h2 class="section-title">About Me</h2></center>
-        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center;">
-            <p>
+        <h2 class="section-title">About Me</h2>
+        <div class="reveal">
+            <p style="text-align: center; font-size: 1.1rem;">
                 I am a motivated and detail-oriented B.Tech Information Technology student at 
-                <strong>K.S. Rangasamy College of Technology</strong> with a CGPA of 7.77.
-                I am passionate about emerging technologies, software development, and problem-solving.
+                <strong>K.S. Rangasamy College of Technology</strong> (2023-2027). 
+                Passionate about emerging technologies, software development, and problem-solving.
+                Currently maintaining a CGPA of 7.77/10.
             </p>
         </div>
     </section>
 
     <section class="container">
-        <center><h2 class="section-title">Technical Skills</h2></center>
-        <div class="grid-container">
-            <div class="card"><i class="fab fa-python"></i> Python</div>
-            <div class="card"><i class="fab fa-java"></i> Java</div>
-            <div class="card"><i class="fas fa-code"></i> C++ / C#</div>
-            <div class="card"><i class="fab fa-android"></i> Flutter</div>
-            <div class="card"><i class="fas fa-database"></i> MySQL</div>
-            <div class="card"><i class="fab fa-angular"></i> AngularJS</div>
-            <div class="card"><i class="fab fa-html5"></i> Web Dev</div>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid reveal">
+            <div class="skill-card"><i class="fab fa-python"></i> Python</div>
+            <div class="skill-card"><i class="fab fa-java"></i> Java</div>
+            <div class="skill-card"><i class="fas fa-code"></i> C++ / C#</div>
+            <div class="skill-card"><i class="fas fa-database"></i> MySQL</div>
+            <div class="skill-card"><i class="fab fa-android"></i> Flutter & Kotlin</div>
+            <div class="skill-card"><i class="fab fa-angular"></i> AngularJS</div>
+            <div class="skill-card"><i class="fas fa-project-diagram"></i> Data Structures</div>
         </div>
     </section>
 
-    <footer style="text-align: center; margin-top: 50px; padding: 30px; background: #2c3e50; color: white;">
-        <div style="margin-bottom: 15px; font-size: 1.5rem;">
-            <a href="https://github.com/DavisGavril" style="color: white; margin: 0 15px;"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/davis-gavril-t-7a6949290" style="color: white; margin: 0 15px;"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:davisgavril292006@gmail.com" style="color: white; margin: 0 15px;"><i class="fas fa-envelope"></i></a>
+    <footer>
+        <div class="social-icons">
+            <a href="https://github.com/DavisGavril" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/davis-gavril-t-7a6949290" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:davisgavril292006@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; 2025 Davis Gavril T.</p>
     </footer>
 
-    <script>
-        function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
