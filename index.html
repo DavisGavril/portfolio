@@ -1,57 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Davis Gavril | Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis Gavril T - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<canvas id="particles"></canvas>
+    <nav class="navbar">
+        <div class="logo">Davis<span>Gavril</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="#" id="contact-btn">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-<nav>
-    <strong>DAVIS GAVRIL T</strong>
-    <div>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="certificates.html">Certificates</a>
-    </div>
-</nav>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="profile-img-container">
+                <img src="profile.jpg" alt="Davis Gavril T" class="profile-img">
+            </div>
+            <h1>Hi, I'm <span class="highlight">Davis Gavril T</span></h1>
+            <h3>B.Tech Information Technology Student</h3>
+            <p>Passionate about emerging technologies, software development, and problem-solving.</p>
+            <div class="hero-btns">
+                <a href="resume.pdf" download="Davis_Gavril_Resume" class="btn primary">Download CV <i class="fas fa-download"></i></a>
+                <button class="btn secondary" id="hire-me-btn">Hire Me</button>
+            </div>
+        </div>
+    </header>
 
-<section id="home" class="hero">
-    <img src="profile.jpg" alt="Profile Photo">
-    <h1>Davis Gavril</h1>
-    <div>
-        <a class="btn" href="resume.pdf" download>Download Resume</a>
-    </div>
-    <div class="social">
-        <a href="https://github.com/DavisGavril" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:yourmail@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-</section>
+    <section class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>
+                I am a motivated and detail-oriented B.Tech Information Technology student (2023-2027) at 
+                <strong>K.S. Rangasamy College of Technology</strong> with a current CGPA of 7.77/10.
+                I have strong fundamentals in programming, computer networks, and software development.
+                I am eager to contribute technical and problem-solving skills in the software development sector.
+            </p>
+        </div>
+    </section>
 
-<section id="about">
-    <h1 style="color:crimson;">About Me</h1>
-    <p>I am Davis Gavril, an Information Technology undergraduate with a strong foundation in software development and a keen interest in building reliable, efficient, and user-centric applications. I am committed to applying engineering principles and modern technologies to solve real-world problems. I have practical experience in web development, programming, and application design, with skills in HTML, CSS, JavaScript, Java, Python, and Flutter. I focus on writing clean, maintainable code and continuously improving my technical expertise through hands-on projects and academic learning. Currently, I am strengthening my core computer science knowledge, preparing for competitive examinations, and actively seeking opportunities to grow as a software engineer. I value professionalism, teamwork, and continuous learning, and I strive to contribute effectively to impactful and innovative projects.</p>
-</section>
+    <section class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fab fa-python"></i> Python</div>
+            <div class="skill-card"><i class="fab fa-java"></i> Java</div>
+            <div class="skill-card"><i class="fas fa-code"></i> C++ / C#</div>
+            <div class="skill-card"><i class="fas fa-database"></i> MySQL</div>
+            <div class="skill-card"><i class="fab fa-android"></i> Flutter & Kotlin</div>
+            <div class="skill-card"><i class="fab fa-angular"></i> AngularJS</div>
+            <div class="skill-card"><i class="fas fa-project-diagram"></i> Data Structures</div>
+            <div class="skill-card"><i class="fab fa-html5"></i> Web Development</div>
+        </div>
+    </section>
 
-<section id="skills">
-    <h1 style="color:crimson;">Skills</h1>
-    <div class="skills">
-        <div class="skill">Java</div>
-        <div class="skill">Python</div>
-        <div class="skill">Flutter</div>
-        <div class="skill">HTML & CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">React</div>
-        <div class="skill">Git & GitHub</div>
-    </div>
-</section>
+    <footer>
+        <p>&copy; 2025 Davis Gavril T. Built with <i class="fas fa-heart"></i> and Code.</p>
+    </footer>
 
-<script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
