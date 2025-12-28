@@ -1,78 +1,82 @@
 $(document).ready(function() {
     
-    // 1. SweetAlert for 'Contact' in Navbar
+    // 1. SweetAlert for 'Contact' - Updated with GitHub & LinkedIn
     $('#contact-btn').click(function(e) {
-        e.preventDefault(); // Prevent default anchor link behavior
+        e.preventDefault(); 
         Swal.fire({
-            title: 'Contact Me',
+            title: 'Get In Touch',
             html: `
-                <p>Email: student@example.com</p>
-                <p>LinkedIn: linkedin.com/in/student</p>
+                <div style="text-align: left; line-height: 2;">
+                    <p><i class="fas fa-envelope" style="color: #4a90e2; width: 20px;"></i> 
+                        <a href="mailto:davisgavril292006@gmail.com" style="text-decoration:none; color:#333;">davisgavril292006@gmail.com</a>
+                    </p>
+                    <p><i class="fab fa-github" style="color: #333; width: 20px;"></i> 
+                        <a href="https://github.com/DavisGavril" target="_blank" style="text-decoration:none; color:#333;">github.com/DavisGavril</a>
+                    </p>
+                    <p><i class="fab fa-linkedin" style="color: #0077b5; width: 20px;"></i> 
+                        <a href="https://www.linkedin.com/in/davis-gavril-t-7a6949290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="text-decoration:none; color:#333;">LinkedIn Profile</a>
+                    </p>
+                    <p><i class="fas fa-phone" style="color: #28a745; width: 20px;"></i> +91 9363015224</p>
+                </div>
             `,
-            icon: 'info',
-            confirmButtonText: 'Great!',
+            showConfirmButton: true,
+            confirmButtonText: 'Close',
             confirmButtonColor: '#4a90e2'
         });
     });
 
-    // 2. SweetAlert for 'Hire Me' button
+    // 2. SweetAlert for 'Hire Me' - Updates Mailto link
     $('#hire-me-btn').click(function() {
         Swal.fire({
-            title: 'Thank you for your interest!',
-            text: 'I am currently available for internships and freelance work.',
-            icon: 'success',
+            title: 'Interested in working with me?',
+            text: 'I am available for internships and development roles.',
+            icon: 'question',
             confirmButtonText: 'Send Email',
             confirmButtonColor: '#4a90e2',
             showCancelButton: true,
             cancelButtonText: 'Close'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "mailto:student@example.com";
+                // Directs to your specific email
+                window.location.href = "mailto:davisgavril292006@gmail.com";
             }
         });
     });
 
-    // 3. SweetAlert for Project Details
+    // 3. Project Details Popup (Same as before)
     $('.view-project').click(function() {
-        let projectTitle = $(this).data('title');
+        let title = $(this).data('title');
+        let tech = $(this).data('tech');
+        let desc = $(this).data('desc');
+
         Swal.fire({
-            title: projectTitle,
-            text: 'This is a placeholder for detailed project information. You can add more description, tech stack used, and links here.',
-            imageUrl: 'https://via.placeholder.com/300x150',
-            imageWidth: 300,
-            imageHeight: 150,
-            imageAlt: 'Project Image',
+            title: title,
+            html: `
+                <div style="text-align: left;">
+                    <p><strong>Description:</strong><br>${desc}</p>
+                    <br>
+                    <p><strong>Tech Stack:</strong> <span style="color:#4a90e2">${tech}</span></p>
+                </div>
+            `,
+            width: 600,
             confirmButtonColor: '#4a90e2'
         });
     });
 
-    // 4. SweetAlert for Certificate Verification
+    // 4. Verification Placeholder
     $('.view-cert').click(function() {
         let certName = $(this).data('name');
         Swal.fire({
-            title: 'Verify Certificate',
-            text: `Redirecting to verification page for ${certName}...`,
-            icon: 'warning',
-            timer: 2000,
-            timerProgressBar: true,
-            showConfirmButton: false
+            title: certName,
+            text: 'Certificate credential viewing is currently simulated.',
+            icon: 'success',
+            confirmButtonColor: '#4a90e2'
         });
     });
+
+    // Mobile Menu Toggle
+    $('.hamburger').click(function() {
+        $('.nav-links').toggleClass('active');
+    });
 });
-
-// Simple function for CV Download (Mock)
-function downloadCV() {
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true
-    });
-
-    Toast.fire({
-        icon: 'success',
-        title: 'CV Downloading started...'
-    });
-}
 
