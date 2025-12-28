@@ -1,11 +1,34 @@
 $(document).ready(function() {
     
-    // 1. Mobile Menu Toggle
+    // 1. Theme Toggle Logic
+    const toggleBtn = $('#theme-toggle');
+    const body = $('body');
+    const icon = toggleBtn.find('i');
+
+    // Check Local Storage for saved preference
+    if (localStorage.getItem('theme') === 'dark') {
+        body.addClass('dark-mode');
+        icon.removeClass('fa-moon').addClass('fa-sun');
+    }
+
+    toggleBtn.click(function() {
+        body.toggleClass('dark-mode');
+        
+        if (body.hasClass('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            icon.removeClass('fa-moon').addClass('fa-sun');
+        } else {
+            localStorage.setItem('theme', 'light');
+            icon.removeClass('fa-sun').addClass('fa-moon');
+        }
+    });
+
+    // 2. Mobile Menu
     $('.hamburger').click(function() {
         $('.nav-links').toggleClass('active');
     });
 
-    // 2. Typing Effect
+    // 3. Typing Effect
     const textArray = ["B.Tech Information Technology Student", "Software Developer", "Tech Enthusiast"];
     let textIndex = 0;
     let charIndex = 0;
@@ -15,7 +38,6 @@ $(document).ready(function() {
     function type() {
         if (!typingElement.length) return;
         let currentString = textArray[textIndex];
-        
         if (isDeleting) {
             typingElement.text(currentString.substring(0, charIndex - 1));
             charIndex--;
@@ -23,7 +45,6 @@ $(document).ready(function() {
             typingElement.text(currentString.substring(0, charIndex + 1));
             charIndex++;
         }
-
         if (!isDeleting && charIndex === currentString.length) {
             isDeleting = true;
             setTimeout(type, 2000);
@@ -37,23 +58,21 @@ $(document).ready(function() {
     }
     type();
 
-    // 3. Contact Popups (SweetAlert)
+    // 4. Popups (SweetAlert)
     $('#contact-btn').click(function(e) {
         e.preventDefault();
         Swal.fire({
             title: 'Contact Details',
             html: `
-                <div style="text-align: left;">
+                <div style="text-align: left; color: #333;">
                     <p><i class="fas fa-envelope"></i> davisgavril292006@gmail.com</p>
-                    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/davis-gavril-t-7a6949290" target="_blank">LinkedIn Profile</a></p>
-                    <p><i class="fab fa-github"></i> <a href="https://github.com/DavisGavril" target="_blank">GitHub Profile</a></p>
+                    <p><i class="fab fa-linkedin"></i> LinkedIn Profile</p>
                 </div>
             `,
-            confirmButtonColor: '#4a90e2'
+            confirmButtonColor: '#d60000'
         });
     });
 
-    // 4. Project Details Popup
     $('.view-project').click(function() {
         let title = $(this).data('title');
         let desc = $(this).data('desc');
@@ -61,7 +80,7 @@ $(document).ready(function() {
         Swal.fire({
             title: title,
             html: `<p>${desc}</p><br><p><strong>Tech:</strong> ${tech}</p>`,
-            confirmButtonColor: '#4a90e2'
+            confirmButtonColor: '#d60000'
         });
     });
 });
