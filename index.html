@@ -6,6 +6,7 @@
     <title>Davis Gavril T - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
 
@@ -27,10 +28,13 @@
             <div class="profile-img-container">
                 <img src="profile.jpg" alt="Davis Gavril T" class="profile-img">
             </div>
-            <h1>Hi, I'm <span class="highlight">Davis Gavril T</span></h1>
-            <h3>B.Tech Information Technology Student</h3>
-            <p>Passionate about emerging technologies, software development, and problem-solving.</p>
-            <div class="hero-btns">
+            <h1 class="animate__animated animate__fadeInDown">Hi, I'm <span class="highlight">Davis Gavril T</span></h1>
+            
+            <h3>I am a <span class="typing-text"></span></h3>
+            
+            <p class="animate__animated animate__fadeInUp">Passionate about emerging technologies, software development, and problem-solving.</p>
+            
+            <div class="hero-btns animate__animated animate__fadeInUp">
                 <a href="resume.pdf" download="Davis_Gavril_Resume" class="btn primary">Download CV <i class="fas fa-download"></i></a>
                 <button class="btn secondary" id="hire-me-btn">Hire Me</button>
             </div>
@@ -38,8 +42,8 @@
     </header>
 
     <section class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
+        <h2 class="section-title reveal">About Me</h2>
+        <div class="about-content reveal">
             <p>
                 I am a motivated and detail-oriented B.Tech Information Technology student (2023-2027) at 
                 <strong>K.S. Rangasamy College of Technology</strong> with a current CGPA of 7.77/10.
@@ -50,8 +54,8 @@
     </section>
 
     <section class="container">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
+        <h2 class="section-title reveal">Technical Skills</h2>
+        <div class="skills-grid reveal">
             <div class="skill-card"><i class="fab fa-python"></i> Python</div>
             <div class="skill-card"><i class="fab fa-java"></i> Java</div>
             <div class="skill-card"><i class="fas fa-code"></i> C++ / C#</div>
@@ -65,19 +69,12 @@
 
     <footer>
         <div class="social-icons" style="margin-bottom: 15px;">
-            <a href="https://github.com/DavisGavril" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/davis-gavril-t-7a6949290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:davisgavril292006@gmail.com" style="color: white; margin: 0 10px; font-size: 1.5rem;">
-                <i class="fas fa-envelope"></i>
-            </a>
+            <a href="https://github.com/DavisGavril" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/davis-gavril-t-7a6949290" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:davisgavril292006@gmail.com" style="color: white; margin: 0 10px; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
         </div>
         <p>&copy; 2025 Davis Gavril T. Built with <i class="fas fa-heart"></i> and Code.</p>
     </footer>
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
