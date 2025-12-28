@@ -1,6 +1,60 @@
 $(document).ready(function() {
     
-    // 1. SweetAlert for 'Contact' - Updated with GitHub & LinkedIn
+    // --- 1. Typing Effect for Hero Section ---
+    const textArray = ["B.Tech Information Technology Student", "Software Developer", "Tech Enthusiast", "Problem Solver"];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000;
+    const typingElement = $('.typing-text');
+
+    function type() {
+        let currentString = textArray[textIndex];
+        
+        if (isDeleting) {
+            typingElement.text(currentString.substring(0, charIndex - 1));
+            charIndex--;
+        } else {
+            typingElement.text(currentString.substring(0, charIndex + 1));
+            charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentString.length) {
+            isDeleting = true;
+            setTimeout(type, newTextDelay);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % textArray.length;
+            setTimeout(type, 500);
+        } else {
+            setTimeout(type, isDeleting ? erasingDelay : typingDelay);
+        }
+    }
+    
+    // Start the typing loop
+    if(typingElement.length) type();
+
+
+    // --- 2. Scroll Reveal Animation ---
+    $(window).scroll(function() {
+        $('.reveal').each(function() {
+            var elementTop = $(this).offset().top;
+            var windowHeight = $(window).height();
+            var elementVisible = 150; // trigger distance
+
+            if (elementTop < (window.scrollTop() + windowHeight - elementVisible)) {
+                $(this).addClass('active');
+            }
+        });
+    });
+    // Trigger once on load in case elements are already in view
+    $(window).scroll();
+
+
+    // --- 3. Existing SweetAlert Code ---
+    
     $('#contact-btn').click(function(e) {
         e.preventDefault(); 
         Swal.fire({
@@ -21,11 +75,12 @@ $(document).ready(function() {
             `,
             showConfirmButton: true,
             confirmButtonText: 'Close',
-            confirmButtonColor: '#4a90e2'
+            confirmButtonColor: '#4a90e2',
+            showClass: { popup: 'animate__animated animate__fadeInDown' },
+            hideClass: { popup: 'animate__animated animate__fadeOutUp' }
         });
     });
 
-    // 2. SweetAlert for 'Hire Me' - Updates Mailto link
     $('#hire-me-btn').click(function() {
         Swal.fire({
             title: 'Interested in working with me?',
@@ -37,13 +92,11 @@ $(document).ready(function() {
             cancelButtonText: 'Close'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Directs to your specific email
                 window.location.href = "mailto:davisgavril292006@gmail.com";
             }
         });
     });
 
-    // 3. Project Details Popup (Same as before)
     $('.view-project').click(function() {
         let title = $(this).data('title');
         let tech = $(this).data('tech');
@@ -51,19 +104,13 @@ $(document).ready(function() {
 
         Swal.fire({
             title: title,
-            html: `
-                <div style="text-align: left;">
-                    <p><strong>Description:</strong><br>${desc}</p>
-                    <br>
-                    <p><strong>Tech Stack:</strong> <span style="color:#4a90e2">${tech}</span></p>
-                </div>
-            `,
+            html: `<div style="text-align: left;"><p><strong>Description:</strong><br>${desc}</p><br><p><strong>Tech Stack:</strong> <span style="color:#4a90e2">${tech}</span></p></div>`,
             width: 600,
-            confirmButtonColor: '#4a90e2'
+            confirmButtonColor: '#4a90e2',
+            backdrop: `rgba(0,0,123,0.4) left top no-repeat` // Cool backdrop effect
         });
     });
 
-    // 4. Verification Placeholder
     $('.view-cert').click(function() {
         let certName = $(this).data('name');
         Swal.fire({
@@ -74,7 +121,6 @@ $(document).ready(function() {
         });
     });
 
-    // Mobile Menu Toggle
     $('.hamburger').click(function() {
         $('.nav-links').toggleClass('active');
     });
