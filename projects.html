@@ -1,47 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Projects | Davis Gavril</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Davis Gavril T</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<canvas id="particles"></canvas>
+    <nav class="navbar">
+        <div class="logo">Davis<span>Gavril</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="#" id="contact-btn">Contact</a></li>
+        </ul>
+    </nav>
 
-<nav>
-    <strong>DAVIS</strong>
-    <div>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="certificates.html">Certificates</a>
-    </div>
-</nav>
+    <section class="container mt-nav">
+        <h2 class="section-title">Academic Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="card project-card">
+                <img src="https://via.placeholder.com/300x150?text=Dr.+Venom+SOS" alt="Dr. Venom Project">
+                <div class="card-content">
+                    <h3>Dr. Venom (SOS Website)</h3>
+                    <p class="short-desc">A responsive web app for rapid emergency assistance for venomous bites.</p>
+                    <span class="date-badge">Apr 2025 - May 2025</span>
+                    <button class="btn sm view-project" 
+                        data-title="Dr. Venom (SOS Website)"
+                        data-tech="HTML, CSS, Bootstrap, AngularJS, MySQL"
+                        data-desc="Developed a responsive web application to provide rapid emergency assistance and guidance for venomous animal bites and stings. Implemented real-time SOS sending with geolocation and emergency contact notifications. Integrated Google Maps API to locate and display nearby hospitals and medical facilities. [span_5](start_span)Created an admin panel to manage resources dynamically.[span_5](end_span)">
+                        View Details
+                    </button>
+                </div>
+            </div>
 
-<section id="projects">
-    <h1 style="color:crimson;">Projects</h1>
-    <div class="projects-grid">
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>A full-featured anime-themed portfolio website showcasing my projects, certificates, skills, and resume download functionality.</p>
-        </div>
-        <div class="card">
-            <h3>Weather App (API)</h3>
-            <p>A responsive weather application using fetch API in JavaScript, allowing users to check weather updates of any city in real-time.</p>
-        </div>
-        <div class="card">
-            <h3>Flutter To-Do App</h3>
-            <p>A Flutter-based To-Do app with multiple projects, task tracking, time entries, and a smooth user interface with swipe-to-delete functionality.</p>
-        </div>
-        <div class="card">
-            <h3>Event Management Website</h3>
-            <p>A web platform for managing events with registration, schedule, and notifications. Built with modern web technologies for responsiveness and interactivity.</p>
-        </div>
-    </div>
-</section>
+            <div class="card project-card">
+                <img src="https://via.placeholder.com/300x150?text=To-Do+App" alt="To-Do List App">
+                <div class="card-content">
+                    <h3>To-Do List Application</h3>
+                    <p class="short-desc">A mobile application for managing daily tasks and projects.</p>
+                    <span class="date-badge">Dec 2024 - Jan 2025</span>
+                    <button class="btn sm view-project" 
+                        data-title="To-Do List Application"
+                        data-tech="Flutter, Firebase, SQLite, Dart"
+                        data-desc="Developed a mobile application for managing daily tasks, projects, and time entries. Designed an intuitive and responsive UI using Flutter's Material Design components. Implemented core features such as add/edit/delete tasks, project grouping, and swipe-to-delete actions. [span_6](start_span)Included fields for total time, notes, and date tracking.[span_6](end_span)">
+                        View Details
+                    </button>
+                </div>
+            </div>
 
-<script src="script.js"></script>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Davis Gavril T.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
