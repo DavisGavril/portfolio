@@ -1,86 +1,96 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Theme Toggle Logic
-    const toggleBtn = $('#theme-toggle');
-    const body = $('body');
-    const icon = toggleBtn.find('i');
+    // --- 1. FIXED THEME TOGGLE (Vanilla JS) ---
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = toggleBtn.querySelector('i');
 
-    // Check Local Storage for saved preference
+    // Load saved theme
     if (localStorage.getItem('theme') === 'dark') {
-        body.addClass('dark-mode');
-        icon.removeClass('fa-moon').addClass('fa-sun');
+        body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
     }
 
-    toggleBtn.click(function() {
-        body.toggleClass('dark-mode');
+    // Toggle on click
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
         
-        if (body.hasClass('dark-mode')) {
+        if (body.classList.contains('dark-mode')) {
             localStorage.setItem('theme', 'dark');
-            icon.removeClass('fa-moon').addClass('fa-sun');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
         } else {
             localStorage.setItem('theme', 'light');
-            icon.removeClass('fa-sun').addClass('fa-moon');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
         }
     });
 
-    // 2. Mobile Menu
-    $('.hamburger').click(function() {
-        $('.nav-links').toggleClass('active');
-    });
+    // --- 2. MOBILE MENU ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
-    // 3. Typing Effect
-    const textArray = ["B.Tech Information Technology Student", "Software Developer", "Tech Enthusiast"];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingElement = $('.typing-text');
-
-    function type() {
-        if (!typingElement.length) return;
-        let currentString = textArray[textIndex];
-        if (isDeleting) {
-            typingElement.text(currentString.substring(0, charIndex - 1));
-            charIndex--;
-        } else {
-            typingElement.text(currentString.substring(0, charIndex + 1));
-            charIndex++;
-        }
-        if (!isDeleting && charIndex === currentString.length) {
-            isDeleting = true;
-            setTimeout(type, 2000);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % textArray.length;
-            setTimeout(type, 500);
-        } else {
-            setTimeout(type, isDeleting ? 50 : 100);
-        }
-    }
-    type();
-
-    // 4. Popups (SweetAlert)
-    $('#contact-btn').click(function(e) {
-        e.preventDefault();
-        Swal.fire({
-            title: 'Contact Details',
-            html: `
-                <div style="text-align: left; color: #333;">
-                    <p><i class="fas fa-envelope"></i> davisgavril292006@gmail.com</p>
-                    <p><i class="fab fa-linkedin"></i> LinkedIn Profile</p>
-                </div>
-            `,
-            confirmButtonColor: '#d60000'
+    if(hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-    });
+    }
 
-    $('.view-project').click(function() {
-        let title = $(this).data('title');
-        let desc = $(this).data('desc');
-        let tech = $(this).data('tech');
-        Swal.fire({
-            title: title,
-            html: `<p>${desc}</p><br><p><strong>Tech:</strong> ${tech}</p>`,
-            confirmButtonColor: '#d60000'
+    // --- 3. TYPING EFFECT ---
+    const typingElement = document.querySelector('.typing-text');
+    if (typingElement) {
+        const textArray = ["B.Tech IT Student", "Software Developer", "Problem Solver"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentString = textArray[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentString.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentString.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentString.length) {
+                isDeleting = true;
+                setTimeout(type, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+        type();
+    }
+
+    // --- 4. POPUPS (Requires SweetAlert Script in HTML) ---
+    const contactBtn = document.getElementById('contact-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Contact Details',
+                html: `<p>davisgavril292006@gmail.com</p>`,
+                confirmButtonColor: '#d60000'
+            });
+        });
+    }
+
+    // Project Details
+    document.querySelectorAll('.view-project').forEach(btn => {
+        btn.addEventListener('click', function() {
+            Swal.fire({
+                title: this.dataset.title,
+                html: `<p>${this.dataset.desc}</p><br><p><strong>Tech:</strong> ${this.dataset.tech}</p>`,
+                confirmButtonColor: '#d60000'
+            });
         });
     });
 });
